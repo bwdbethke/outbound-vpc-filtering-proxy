@@ -638,10 +638,10 @@ Resources:
             /root/fetch-config-cron.sh
             #  start squit
             systemctl start squid
-            # cron to update whitelist if needed every 5 min 
-            echo "*/5 * * * * /root/fetch-config-cron.sh" | crontab -
+            # cron to update whitelist if needed every 15 min 
+            echo "*/15 * * * * /root/fetch-config-cron.sh" | crontab -
             # cron to to get and push proxy stats
-            (crontab -l ; echo "*/5 * * * * /root/get-stats-cron.sh") | crontab -
+            (crontab -l ; echo "*/15 * * * * /root/get-stats-cron.sh") | crontab -
             # set up DNS if needed 
             if [[ ${CustomDNS} != "default" ]]; then
                 /root/update-dns.sh
